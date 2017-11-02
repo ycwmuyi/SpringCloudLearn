@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ycw
+  cloud:
+    config:
+      profile: dev
+      label: master
+      url: http://localhost:8888/
+server:
+  port: 8887
+#spring.application.name=ycw
+#spring.cloud.config.label=master
+#spring.cloud.config.profile=dev
+#spring.cloud.config.uri= http://localhost:8888/
+#server.port=7007
