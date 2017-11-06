@@ -1,0 +1,3 @@
+rootProject.name = 'spring_cloud_learn'
+
+include 'base', 'config-client','config-server', 'eurekaserver', 'service-feign','service-ribbon','service_zuul','service-hi'
