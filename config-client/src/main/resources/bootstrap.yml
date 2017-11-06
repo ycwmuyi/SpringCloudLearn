@@ -8,6 +8,9 @@ spring:
       url: http://localhost:8888/
 server:
   port: 8887
+management:
+  security:
+    enabled: false
 #spring.application.name=ycw
 #spring.cloud.config.label=master
 #spring.cloud.config.profile=dev

@@ -1,29 +1,40 @@
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'spring-boot'
+	apply plugin: 'eclipse'
+	group = 'com.ycw.spring_cloud_learn'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = 1.8
+}
 buildscript {
-	ext {
-		springBootVersion = '1.5.7.RELEASE'
+	repositories {
+		maven {
+			url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
 	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+	}
+}
+
+subprojects {
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		compile('org.springframework.boot:spring-boot-starter')
+		compile('org.springframework.boot:spring-boot-starter-web')
+		testCompile('org.springframework.boot:spring-boot-starter-test')
+	}
+	ext {
+		springCloudVersion = 'Dalston.SR4'
+	}
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		}
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-
-group = 'com.ycw.spring_cloud_learn'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
 
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
