@@ -1,11 +1,4 @@
-allprojects {
-	apply plugin: 'java'
-	apply plugin: 'spring-boot'
-	apply plugin: 'eclipse'
-	group = 'com.ycw.spring_cloud_learn'
-	version = '0.0.1-SNAPSHOT'
-	sourceCompatibility = 1.8
-}
+
 buildscript {
 	repositories {
 		maven {
@@ -18,6 +11,13 @@ buildscript {
 }
 
 subprojects {
+	apply plugin: 'java'
+	apply plugin: 'spring-boot'
+	apply plugin: 'eclipse'
+	group = 'com.ycw.spring_cloud_learn'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = 1.8
+
 	repositories {
 		mavenCentral()
 	}
