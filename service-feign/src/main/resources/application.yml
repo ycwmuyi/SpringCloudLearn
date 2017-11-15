@@ -1,10 +1,15 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8765
 spring:
   application:
     name: service-feign
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    metadataMap:
+      testkey1: testValue1
+      testkey2: testValue2
+      testkey3: testValue3
+      testkey4: testValue4

@@ -24,6 +24,10 @@ subprojects {
 	dependencies {
 		compile('org.springframework.boot:spring-boot-starter')
 		compile('org.springframework.boot:spring-boot-starter-web')
+		//swagger-UI
+		compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.1'
+		compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
+		compile group: 'com.xiaoleilu', name: 'hutool-all', version: '3.1.1'
 		testCompile('org.springframework.boot:spring-boot-starter-test')
 	}
 	ext {

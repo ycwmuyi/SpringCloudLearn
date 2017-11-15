@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 public class DisableHystrixConfiguration {
 
     @Bean
-    @Scope("prototypeo")
+    @Scope("prototype")
     public Feign.Builder feignBuilder(){
         return Feign.builder();
     }

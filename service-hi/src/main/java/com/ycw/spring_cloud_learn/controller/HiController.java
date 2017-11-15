@@ -1,6 +1,9 @@
 package com.ycw.spring_cloud_learn.controller;
 
+import com.ycw.spring_cloud_learn.Service.ErurekaClientService;
 import com.ycw.spring_cloud_learn.bean.User;
+import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +14,13 @@ import org.springframework.web.bind.annotation.*;
  * History:
  */
 @RestController
+@Api(description = "hi")
 public class HiController {
     @Value("${server.port}")
     String port;
+
+    @Autowired
+    private ErurekaClientService erurekaClientService;
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String hi(@RequestParam String name){
@@ -30,5 +37,14 @@ public class HiController {
         return new User(name,id,phoneNumber);
     }
 
+    @RequestMapping(value = "/client1",method = RequestMethod.GET)
+    public String client1(){
+        return erurekaClientService.serviceUrl();
+    }
+
+    @RequestMapping(value = "/client2",method = RequestMethod.GET)
+    public String client2(){
+        return erurekaClientService.serviceUrlB();
+    }
 
 }
