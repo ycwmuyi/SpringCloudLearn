@@ -47,4 +47,10 @@ public class HiController {
         return erurekaClientService.serviceUrlB();
     }
 
+    @RequestMapping(value = "/intances",method = RequestMethod.GET)
+    public String intances(){
+        return "";
+    }
+
+
 }

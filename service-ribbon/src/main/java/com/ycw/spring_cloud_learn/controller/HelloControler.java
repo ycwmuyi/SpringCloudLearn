@@ -1,4 +1,4 @@
-package com.ycw.spring_cloud_learn.service.controller;
+package com.ycw.spring_cloud_learn.controller;
 
 import com.ycw.spring_cloud_learn.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;

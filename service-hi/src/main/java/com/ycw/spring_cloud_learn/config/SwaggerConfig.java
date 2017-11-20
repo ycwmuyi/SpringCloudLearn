@@ -25,7 +25,9 @@ public class SwaggerConfig {
 
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.ycw.spring_cloud_learn.controller"))
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).
+                select().apis(RequestHandlerSelectors.
+                basePackage("com.ycw.spring_cloud_learn.controller"))
                 .paths(PathSelectors.any()).build();
     }
 

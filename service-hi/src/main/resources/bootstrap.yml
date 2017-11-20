@@ -20,6 +20,6 @@ eureka:
       testkey2: testValue2
       testkey3: testValue3
       testkey4: testValue4
-    instanceId: service-hi-instanceId ${server.port}
+    instanceId: service-hi
     appname: service-hi-appname ${server.port}
-    hostname: service-hi-hostname
+#    hostname: service-hi-hostname
