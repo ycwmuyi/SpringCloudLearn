@@ -1,6 +1,5 @@
 package com.ycw.spring_cloud_learn.service;
 
-import org.springframework.stereotype.Service;
 
 /**
  * Author: yangchengwei
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
  * Description:
  * History:
  */
-@Service
 public interface HelloService {
 
     String hiService(String name);
