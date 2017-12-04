@@ -1,14 +1,29 @@
 package com.ycw.spring_cloud_learn.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.ycw.spring_cloud_learn.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Author: yangchengwei
- * Date: 2017/10/15 14:54
+ * Date: 2017/10/15 14:55
  * Description:
  * History:
  */
-public interface HelloService {
+@Service
+public class HelloService {
+    @Autowired
+    RestTemplate restTemplate;
 
-    String hiService(String name);
+    @HystrixCommand(fallbackMethod = "helloFallback")
+    public String hiService(String name) {
+        return restTemplate.getForObject("http://service-hi/hi?name="+name,String.class);
+    }
+
+    public String helloFallback(String name){
+        return "error";
+    }
 
 }

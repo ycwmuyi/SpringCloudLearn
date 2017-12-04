@@ -24,6 +24,11 @@ public class HiController {
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String hi(@RequestParam String name){
+        try {
+            Thread.sleep(20*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "hi "+name+",i am from port:" +port;
     }
 
@@ -52,5 +57,9 @@ public class HiController {
         return "";
     }
 
+    @RequestMapping(value = "/user",method = RequestMethod.GET)
+    public User getUser(@RequestParam String name){
+        return new User(name,43,"18221616115");
+    }
 
 }
