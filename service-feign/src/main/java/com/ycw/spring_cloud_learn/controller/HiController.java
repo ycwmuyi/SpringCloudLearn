@@ -2,8 +2,11 @@ package com.ycw.spring_cloud_learn.controller;
 
 import com.ycw.spring_cloud_learn.bean.User;
 import com.ycw.spring_cloud_learn.service.SchedualServiceHi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Author: yangchengwei
@@ -17,8 +20,12 @@ public class HiController {
     @Autowired
     SchedualServiceHi schedualServiceHi;
 
+    private Logger logger = LoggerFactory.getLogger("HiController");
+
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String sayHi(@RequestParam String name){
+        logger.info("feign");
+//        return restTemplate.getForObject("http://service-hi/hi?name="+name,String.class);
         return schedualServiceHi.sayHiFromClientOne(name);
     }
 

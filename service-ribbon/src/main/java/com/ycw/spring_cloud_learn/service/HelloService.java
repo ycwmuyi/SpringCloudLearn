@@ -1,7 +1,6 @@
 package com.ycw.spring_cloud_learn.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.ycw.spring_cloud_learn.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

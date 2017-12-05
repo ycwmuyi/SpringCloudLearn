@@ -3,9 +3,13 @@ package com.ycw.spring_cloud_learn.controller;
 import com.ycw.spring_cloud_learn.Service.ErurekaClientService;
 import com.ycw.spring_cloud_learn.bean.User;
 import io.swagger.annotations.Api;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Author: yangchengwei
@@ -18,17 +22,15 @@ import org.springframework.web.bind.annotation.*;
 public class HiController {
     @Value("${server.port}")
     String port;
+    private Logger log = LoggerFactory.getLogger("HiController");
 
     @Autowired
     private ErurekaClientService erurekaClientService;
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    public String hi(@RequestParam String name){
-        try {
-            Thread.sleep(20*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public String hi(@RequestParam String name, HttpServletRequest request){
+        log.info(request.getHeader("X-B3-TraceId"));
+        log.info("hi");
         return "hi "+name+",i am from port:" +port;
     }
 
@@ -59,6 +61,11 @@ public class HiController {
 
     @RequestMapping(value = "/user",method = RequestMethod.GET)
     public User getUser(@RequestParam String name){
+        return new User(name,43,"18221616115");
+    }
+
+    @RequestMapping(value = "/sleuth_test",method = RequestMethod.GET)
+    public User getSleuth(@RequestParam String name){
         return new User(name,43,"18221616115");
     }
 

@@ -13,3 +13,11 @@ eureka:
       testkey2: testValue2
       testkey3: testValue3
       testkey4: testValue4
+
+logging:
+  level:
+    org:
+      springframwork:
+        web:
+          servlet:
+            DispatherServlet: DEBUG

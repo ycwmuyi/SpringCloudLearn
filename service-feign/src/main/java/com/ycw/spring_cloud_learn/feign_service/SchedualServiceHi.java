@@ -18,4 +18,5 @@ public interface SchedualServiceHi {
 
     @RequestMapping(value = "/hi3",method = RequestMethod.GET)
     User hi(@RequestHeader("name") String name, @RequestHeader("id") Integer id, @RequestHeader("phoneNumber") String phoneNumber);
+
 }
